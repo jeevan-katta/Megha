@@ -1,0 +1,63 @@
+{
+  "name": "megha-platform",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "preview": "node scripts/dev.mjs --preview",
+    "seed": "npm run seed -w @megha/backend",
+    "mongo:start": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-mongo.ps1",
+    "mongo:init": "node scripts/init-mongo.mjs",
+    "db:indexes": "node --import tsx scripts/ensure-indexes.ts",
+    "db:merge-quotes": "node --import tsx scripts/merge-quotes.ts",
+    "db:migrate-fulfilment": "node --import tsx scripts/migrate-fulfilment.ts",
+    "profile": "node scripts/profile-performance.mjs",
+    "check:api": "node --import tsx scripts/api-check.ts",
+    "check:payments": "node --import tsx scripts/payment-check.ts",
+    "check:fulfilment": "node --import tsx scripts/fulfilment-check.ts",
+    "check:email": "node --import tsx scripts/email-check.ts",
+    "check:browser": "node scripts/browser-check.mjs",
+    "check:performance": "node scripts/performance-browser-check.mjs",
+    "check:admin": "node scripts/admin-browser-check.mjs",
+    "check:razorpay": "node scripts/razorpay-browser-check.mjs",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "eslint apps packages tests",
+    "test": "node scripts/test.mjs",
+    "build": "npm run build --workspaces --if-present",
+    "format": "prettier --write apps packages scripts tests docs *.json *.mjs",
+    "format:check": "prettier --check apps packages scripts tests docs *.json *.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@playwright/test": "^1.55.0",
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.0",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "prettier": "^3.9.9",
+    "tailwindcss": "^4.1.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.0.0"
+  },
+  "overrides": {
+    "postcss": "^8.5.29",
+    "next": {
+      "postcss": "^8.5.29"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "@megha/constants",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "exports": "./src/index.ts"
+}

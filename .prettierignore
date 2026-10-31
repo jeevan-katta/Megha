@@ -1,0 +1,8 @@
+node_modules
+**/.next
+**/.local
+docs/source
+**/public/assets
+package-lock.json
+**/*.tsbuildinfo
+**/next-env.d.ts
