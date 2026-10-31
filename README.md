@@ -8,7 +8,7 @@ Import this repository twice, using **Node.js 24.x** and these Root Directories:
 
 | Project  | Root Directory  | Framework | Build settings                              |
 | -------- | --------------- | --------- | ------------------------------------------- |
-| API      | `apps/api`      | Other     | Explicit Node function; no build command    |
+| API      | `apps/api`      | Other     | npm run build (set in vercel.json)          |
 | Frontend | `apps/frontend` | Next.js   | Automatic framework defaults (`next build`) |
 
 Keep **Include source files outside the Root Directory** enabled in both projects. Shared
@@ -45,7 +45,7 @@ MEGHA/
       src/middleware/   Authentication, permissions, errors and rate limits
       src/jobs/         Authenticated reservation maintenance
       src/database/     Cached MongoDB connection and model helpers
-      api/index.ts      App export
+      api/index.mjs      App export
   packages/
     types/              Shared DTOs
     validation/         Shared Zod input contracts

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { once } from 'node:events';
-import app from '../apps/api/api/index';
+import app from '../apps/api/src/app';
 
 test('serverless entry serves root liveness without a database connection', async () => {
   const server = app.listen(0, '127.0.0.1');

@@ -53,7 +53,7 @@ Keep the complete MEGHA repository together, including root `package.json`, lock
 | Suggested name                              | megha-api-demo              | megha-client-demo           |
 | Root Directory                              | `apps/api`                  | `apps/frontend`             |
 | Framework                                   | Other (Node.js function)    | Next.js                     |
-| Build Command                               | Disabled (set in config)    | Automatic Next.js defaults  |
+| Build Command                               | npm run build (in config)   | Automatic Next.js defaults  |
 | Include source files outside Root Directory | Enabled                     | Enabled                     |
 | Install Command                             | Automatic workspace install | Automatic workspace install |
 

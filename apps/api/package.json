@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "tsc --noEmit",
+    "build": "tsc --noEmit && node build.mjs && node smoke-build.mjs",
     "typecheck": "tsc --noEmit",
     "seed": "tsx src/seed.ts"
   },
@@ -35,6 +35,7 @@
     "@types/multer": "^2.0.0",
     "@types/node": "^22.0.0",
     "@types/nodemailer": "^8.0.2",
+    "esbuild": "0.28.2",
     "tsx": "^4.20.0",
     "typescript": "^5.9.0"
   }
