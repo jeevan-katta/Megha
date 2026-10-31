@@ -8,7 +8,7 @@ Import this repository twice, using **Node.js 24.x** and these Root Directories:
 
 | Project  | Root Directory  | Framework | Build settings                              |
 | -------- | --------------- | --------- | ------------------------------------------- |
-| API      | `apps/api`      | Express   | Automatic framework defaults                |
+| API      | `apps/api`      | Other     | Explicit Node function; no build command    |
 | Frontend | `apps/frontend` | Next.js   | Automatic framework defaults (`next build`) |
 
 Keep **Include source files outside the Root Directory** enabled in both projects. Shared

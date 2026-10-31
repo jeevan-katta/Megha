@@ -52,8 +52,8 @@ Keep the complete MEGHA repository together, including root `package.json`, lock
 | ------------------------------------------- | --------------------------- | --------------------------- |
 | Suggested name                              | megha-api-demo              | megha-client-demo           |
 | Root Directory                              | `apps/api`                  | `apps/frontend`             |
-| Framework                                   | Express                     | Next.js                     |
-| Build Command                               | Automatic Express defaults  | Automatic Next.js defaults  |
+| Framework                                   | Other (Node.js function)    | Next.js                     |
+| Build Command                               | Disabled (set in config)    | Automatic Next.js defaults  |
 | Include source files outside Root Directory | Enabled                     | Enabled                     |
 | Install Command                             | Automatic workspace install | Automatic workspace install |
 
@@ -168,7 +168,8 @@ network access, assigned domains or environment settings; test those after deplo
   `metadataBase`; neither prevented the build or screen checks.
 
 The app is running locally at `http://127.0.0.1:3000`, with the API at port 5000. Both use the
-Atlas demo database. If the machine restarts, run `npm run dev` from the MEGHA root. Atlas
+Atlas demo database. If the machine restarts, run
+pm run dev` from the MEGHA root. Atlas
 connections no longer require the startup script to launch a local MongoDB process.
 
 ### Interactive test payment verified
@@ -187,3 +188,7 @@ alone will not add the new demo shipping provider.
 References: [Vercel Express deployment](https://vercel.com/docs/frameworks/backend/express),
 [Vercel shared monorepo files](https://vercel.com/docs/monorepos/monorepo-faq),
 [MongoDB Atlas connection requirements](https://www.mongodb.com/docs/atlas/connect-to-database-deployment/).
+
+## Backend routing diagnostics
+
+The API root `/` returns `Megha API is up` without accessing MongoDB. `/api/v1/health` additionally runs database and request middleware. A Vercel `NOT_FOUND` is a deployment routing error; `FUNCTION_INVOCATION_FAILED` requires checking the runtime log for the actual startup exception. Confirm Root Directory is `apps/api`, disable custom build/output overrides, include files outside the root, and redeploy the latest commit. Do not use the frontend project URL as the backend origin.

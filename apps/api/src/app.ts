@@ -20,6 +20,11 @@ if (process.env.VERCEL) app.set('trust proxy', 1);
 app.use(requestContext);
 app.use(timing);
 app.use(helmet());
+// Liveness must not wait for MongoDB, session lookup or database-backed rate limiting.
+app.get('/', (_req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.json({ message: 'Megha API is up', status: 'ok', health: '/api/v1/health' });
+});
 app.use(cors({ origin: config.origins, credentials: true }));
 app.use(cookieParser());
 app.use(validateOrigin);
